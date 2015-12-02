@@ -11,8 +11,8 @@
       </ul>
 
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">projects</a></li>       
-        <li><a href="https://github.com/pelkmanslab/iBRAIN_UZH">documentation</a></li>       
+        <li><a class="white-text" href="/">projects</a></li>       
+        <li><a class="white-text" href="https://github.com/pelkmanslab/iBRAIN_UZH">documentation</a></li>       
       </ul>
       <ul id="nav-mobile" class="side-nav">
         <form><div class="input-field">
