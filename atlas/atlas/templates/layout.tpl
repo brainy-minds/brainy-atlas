@@ -42,7 +42,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Powered by <a class="brown-text text-lighten-3" href="http://materializecss.com">brainy-atlas</a>
+      Powered by <a class="brown-text text-lighten-3" href="#">brainy-atlas</a>
       </div>
     </div>
   </footer>

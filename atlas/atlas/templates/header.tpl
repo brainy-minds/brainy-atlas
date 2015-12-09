@@ -15,9 +15,9 @@
         <li><a class="white-text" href="https://github.com/pelkmanslab/iBRAIN_UZH">documentation</a></li>       
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <form><div class="input-field">
+        <form><div class="input-field grey-text">
           <input type="search" id="search-field" class="field" required maxlength="" value="#search">
-          <label for="search-field"><i class="mdi-action-search"></i></label>
+          <label for="search-field"><i class="mdi-action-search grey-text"></i></label>
           <i class="mdi-navigation-close close"></i>
         </div></form>
         <li><a href="/">projects</a></li>       
