@@ -16,7 +16,16 @@
   {% block content %}
   {% endblock %}
 
-  <footer class="page-footer blue lighten-2">
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+  {% block bottomjs %}
+  {% endblock %}
+
+  <!-- Footer -->
+  <div class="section push-container">&nbsp;</div>
+  <footer class="block page-footer blue lighten-2">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -46,14 +55,6 @@
       </div>
     </div>
   </footer>
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="{% static "js/materialize.js" %}"></script>
-  <script src="{% static "js/init.js" %}"></script>
-
-  {% block bottomjs %}
-  {% endblock %}
 
   </body>
 </html>
