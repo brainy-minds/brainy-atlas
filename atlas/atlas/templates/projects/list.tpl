@@ -22,10 +22,16 @@
         
         </div>
       </div>  
-      
+
       <div class="row">        
-      {% for project in project_list %}
-            
+        {% for error in error_list %}                  
+        <h4>Error in: {{ error.project.name }}</h4>
+        <blockquote>{{ error.msg }}</blockquote>
+      {% endfor %}
+      </div>
+      
+      <div class="row">
+      {% for project in project_list %}            
         <div class="col s12 m6 l3">
           <ul class="collection with-header">
             <li class="collection-header">
@@ -37,37 +43,15 @@
             {% endfor %}                
           </ul>
         </div>
-
+      {% empty %}
+        <p class="flow-text">Sorry, no active registered projects found.</p>
       {% endfor %}    
       </div>
 
     </div> <!-- end of section -->
 
 
-    <!-- dial menu -->
-    <div class="section">
-
-      <div class="row">        
-        <div class="col s12">
-      
-          <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-
-            <a class="btn-floating btn-large red">
-              <i class="large mdi-navigation-menu"></i>
-            </a>
-            <ul>
-              <li><a class="btn-floating blue"><i class="material-icons">add</i></a></li>
-              <li><a class="btn-floating red"><i class="material-icons">grade</i></a></li>
-              <li><a class="btn-floating yellow darken-1"><i class="material-icons">contacts</i></a></li>
-              <!-- <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li> -->
-            </ul>
-
-          </div>
         
-        </div>
-      </div>
-
-    </div>  <!-- end of section -->     
 
   </div>
 {% endblock %}
