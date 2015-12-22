@@ -23,12 +23,14 @@
         </div>
       </div>  
 
+      {% if error_list %}
       <div class="row">        
         {% for error in error_list %}                  
         <h4>Error in: {{ error.project.name }}</h4>
         <blockquote>{{ error.msg }}</blockquote>
-      {% endfor %}
+        {% endfor %}
       </div>
+      {% endif %}
       
       <div class="row">
       {% for project in project_list %}            
@@ -50,8 +52,6 @@
 
     </div> <!-- end of section -->
 
-
-        
 
   </div>
 {% endblock %}
