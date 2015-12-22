@@ -24,6 +24,6 @@
         <li><a href="https://github.com/pelkmanslab/iBRAIN_UZH">documentation</a></li>       
       </ul>
 
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons white-text">menu</i></a>
     </div>
   </nav>

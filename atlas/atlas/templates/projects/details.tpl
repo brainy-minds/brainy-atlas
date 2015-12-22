@@ -24,7 +24,7 @@
           <nav>
             <div class="nav-wrapper brown lighten-4">
               <div class="col">
-                <a href="#!" class="breadcrumb">Projects</a>
+                {% include 'breadcrumb/projects.tpl' %}
                 <a href="#!" class="breadcrumb">Details</a>
                 <a href="#!" class="breadcrumb">{{ project.name }}</a>
               </div>

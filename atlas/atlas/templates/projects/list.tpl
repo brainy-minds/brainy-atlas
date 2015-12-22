@@ -14,7 +14,7 @@
           <nav>
             <div class="nav-wrapper brown lighten-4">
               <div class="col">
-                <a href="#!" class="breadcrumb">Projects</a>
+                {% include 'breadcrumb/projects.tpl' %}
                 <a href="#!" class="breadcrumb">Active</a>
               </div>
             </div>
