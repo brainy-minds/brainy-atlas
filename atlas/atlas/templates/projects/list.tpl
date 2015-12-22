@@ -37,8 +37,9 @@
         <div class="col s12 m6 l3">
           <ul class="collection with-header">
             <li class="collection-header">
-              <h2>{{ project.name }}</h2>
-              <p>{{ project.path }}</p>
+              {% url 'details' project.id as the_url %}
+              <h2><a href="{{ the_url }}">{{ project.name }}</a></h2>
+              <p><strong>Location:</strong> {{ project.path }}</p>
             </li>
             {% for task in project.tasks %}
             <li class="collection-item">{{ task.jobname }}</li>

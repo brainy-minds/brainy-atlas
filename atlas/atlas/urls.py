@@ -6,7 +6,8 @@ from django.contrib import admin
 urlpatterns = patterns(
     '',
     url(r'^$', 'atlas.projects.views.list_projects', name='list_projects'),
-    url(r'^details/$', 'atlas.projects.views.details', name='details'),
+    url(r'^details/([0-9]+)/$', 'atlas.projects.views.details',
+        name='details'),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^admin/', include(admin.site.urls)),
     # (r'^accounts/', include('registration.backends.simple.urls')),
