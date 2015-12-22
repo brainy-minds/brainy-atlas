@@ -38,39 +38,19 @@
         <div class="col s12">
           <h2>Project: {{ project.name }}</h2>
             <ul class="collection">
-              <li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
+              {% for node in project.task_tree %}
               <li class="collection-item avatar">
                 <i class="material-icons circle">folder</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
+                <span class="title">{{ node.task.jobname }}</span>
+                <p>
+                {% for subnode in node.tree %}
+                  &nbsp;&nbsp;{{ subnode.task.jobname }}<br>
+                {% endfor %}
                 </p>
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
               </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle green">insert_chart</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle red">play_arrow</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-            </ul>            
+              {% endfor %}
+            </ul>
         </div>
       </div>
       {% endif %}

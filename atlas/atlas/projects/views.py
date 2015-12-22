@@ -11,7 +11,7 @@ from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
 # from rest_auth.registration.views import SocialLogin
 
 from brainy.errors import BrainyProjectError
-from atlas.projects.errors import ProjectViewError
+
 
 # Create your views here.
 # class FacebookLogin(SocialLogin):
@@ -65,10 +65,11 @@ def details(request, project_id):
     # Get project's tasks
     if project is not None:
         try:
+            task_tree = reg_projects.get_task_tree(project['path'])
             project = {
                 'name': project['name'],
                 'path': project['path'],
-                'tasks': reg_projects.load_session_tasks(project['path']),
+                'task_tree': task_tree,
             }
         except BrainyProjectError as project_error:
             # Report error endowed with the project.

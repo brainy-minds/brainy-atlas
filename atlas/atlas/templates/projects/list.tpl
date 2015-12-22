@@ -33,7 +33,7 @@
       {% endif %}
       
       <div class="row">
-      {% for project in project_list %}            
+      {% for project in project_list %}
         <div class="col s12 m6 l3">
           <ul class="collection with-header">
             <li class="collection-header">
@@ -43,12 +43,12 @@
             </li>
             {% for task in project.tasks %}
             <li class="collection-item">{{ task.jobname }}</li>
-            {% endfor %}                
+            {% endfor %}
           </ul>
         </div>
       {% empty %}
         <p class="flow-text">Sorry, no active registered projects found.</p>
-      {% endfor %}    
+      {% endfor %}
       </div>
 
     </div> <!-- end of section -->
