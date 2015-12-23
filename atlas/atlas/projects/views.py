@@ -19,6 +19,21 @@ class FacebookLogin(object):
     adapter_class = FacebookOAuth2Adapter
 
 
+def map_color_cls(task_status):
+    if task_status == 'FAILED':
+        return 'red'
+    elif task_status == 'TERMINATED':
+        return 'green'
+    return ''  # Default is blue.
+
+
+def map_text_cls(task_status):
+    color = map_color_cls(task_status)
+    if len(color) > 0:
+        return '%s-text' % color
+    return ''  # Default is blue.
+
+
 # @login_required
 def list_projects(request):
     reg_projects = RegisteredProjects()
@@ -26,12 +41,8 @@ def list_projects(request):
     errors = list()
     for project in reg_projects.get_list():
         try:
-            project = {
-                'id': int(project['id']),
-                'name': project['name'],
-                'path': project['path'],
-                'tasks': reg_projects.load_session_tasks(project['path']),
-            }
+            project['id'] = int(project['id'])
+            project['status_cls'] = map_text_cls(project['status'])
         except BrainyProjectError as project_error:
             # Report error endowed with the project.
             errors.append({

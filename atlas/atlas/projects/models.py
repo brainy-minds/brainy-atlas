@@ -3,7 +3,7 @@ from django.db import models
 from gc3libs.workflow import TaskCollection
 from brainy.config import load_brainy_config
 from brainy.project.base import BrainyProject
-from brainy.project.gc3pie import YamlTaskCollection
+from brainy.project.gc3pie import YamlTaskCollection, job_has_failed
 from brainy.project.manager import ProjectManager
 from brainy.project.session import load_or_create_session
 from atlas.projects.errors import ProjectViewError
@@ -72,7 +72,11 @@ class RegisteredProjects(object):
             node = {
                 'task': task,
                 'level': level_depth,
+                'state': task.execution.state
             }
+            if task.execution.state == 'TERMINATED' \
+                    and job_has_failed(task):
+                node['state'] = 'FAILED'
             if isinstance(task, TaskCollection):
                 sub_tree = self.get_task_tree(project_path,
                                               max_level=max_level,

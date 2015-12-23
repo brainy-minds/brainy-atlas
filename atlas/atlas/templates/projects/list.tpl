@@ -35,16 +35,34 @@
       <div class="row">
       {% for project in project_list %}
         <div class="col s12 m6 l3">
-          <ul class="collection with-header">
-            <li class="collection-header">
-              {% url 'details' project.id as the_url %}
-              <h2><a href="{{ the_url }}">{{ project.name }}</a></h2>
-              <p><strong>Location:</strong> {{ project.path }}</p>
-            </li>
-            {% for task in project.tasks %}
-            <li class="collection-item">{{ task.jobname }}</li>
-            {% endfor %}
-          </ul>
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                {% url 'details' project.id as the_url %}
+                <h3><a href="{{ the_url }}" class="{{ project.status_cls}} ">{{ project.name }}</a></h3>
+              </span>
+            </div>
+            <ul class="collection">
+                <li class="collection-item">
+                  <strong>Location</strong><span class="badge">{{ project.path }}</span><br>
+                </li>
+                <li class="collection-item">
+                  <strong>Workflow</strong><span class="badge">{{ project.workflow }}</span>
+                </li>
+                <li class="collection-item">
+                  <strong>Status</strong><span class="badge">{{ project.status }}</span>
+                </li>
+            </ul>
+            <nav class="light-blue lighten-1 text-white">
+              <div class="nav-wrapper">                
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="{{ the_url }}"><i class="material-icons">view_module</i></a></li>
+                  <li><a href="#"><i class="material-icons">refresh</i></a></li>
+                  <li><a href="#"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+              </div>
+            </nav>            
+          </div>
         </div>
       {% empty %}
         <p class="flow-text">Sorry, no active registered projects found.</p>

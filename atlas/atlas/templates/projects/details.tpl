@@ -44,10 +44,10 @@
                 <span class="title">{{ node.task.jobname }}</span>
                 <p>
                 {% for subnode in node.tree %}
-                  &nbsp;&nbsp;{{ subnode.task.jobname }}<br>
+                  &nbsp;&nbsp;{{ subnode.task.jobname }}<span class="badge">{{ subnode.state }}</span><br>
                 {% endfor %}
                 </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                <a href="#!" class="secondary-content"><i class="material-icons">insert_chart</i></a>
               </li>
               {% endfor %}
             </ul>
