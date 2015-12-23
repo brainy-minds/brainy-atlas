@@ -13,6 +13,8 @@ from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
 from brainy.errors import BrainyProjectError
 
 
+MAX_LOCATION_CHARS = 60
+
 # Create your views here.
 # class FacebookLogin(SocialLogin):
 class FacebookLogin(object):
@@ -43,6 +45,10 @@ def list_projects(request):
         try:
             project['id'] = int(project['id'])
             project['status_cls'] = map_text_cls(project['status'])
+            project['location'] = project['path']
+            if len(project['location']) > MAX_LOCATION_CHARS:
+                project['location'] = '...' + \
+                    project['location'][MAX_LOCATION_CHARS - 3:]
         except BrainyProjectError as project_error:
             # Report error endowed with the project.
             errors.append({

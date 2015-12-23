@@ -44,7 +44,7 @@
             </div>
             <ul class="collection">
                 <li class="collection-item">
-                  <strong>Location</strong><span class="badge">{{ project.path }}</span><br>
+                  <strong>Location</strong><span class="badge">{{ project.location }}</span><br>
                 </li>
                 <li class="collection-item">
                   <strong>Workflow</strong><span class="badge">{{ project.workflow }}</span>
