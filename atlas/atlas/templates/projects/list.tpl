@@ -55,7 +55,7 @@
             </ul>
             <nav class="light-blue lighten-1 text-white">
               <div class="nav-wrapper">                
-                <ul class="right hide-on-med-and-down">
+                <ul class="right">
                   <li><a href="{{ the_url }}"><i class="material-icons">view_module</i></a></li>
                   <li><a href="#"><i class="material-icons">refresh</i></a></li>
                   <li><a href="#"><i class="material-icons">more_vert</i></a></li>
