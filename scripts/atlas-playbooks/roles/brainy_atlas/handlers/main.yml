@@ -1,0 +1,5 @@
+---
+# handlers file for brainy-atalas
+- name: restart apache2
+  service: name=apache2 state=restarted
+  sudo: yes

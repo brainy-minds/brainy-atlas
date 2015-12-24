@@ -1,0 +1,48 @@
+---
+- name: Update all packages to the latest version
+  sudo: yes
+  tags:
+    - update
+  apt: upgrade=safe update_cache=yes cache_valid_time=3600
+
+- name: Install apt packages
+  sudo: yes
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - git
+    - python-setuptools 
+    - python-dev
+    - build-essential
+    - libmysqlclient-dev
+    - nodejs
+    - npm
+  tags:
+    - python
+    - django
+
+- name: Get the right version of setuptools globally
+  sudo: yes
+  shell: "easy_install setuptools==5.8"
+
+- name: Get the right version of pip globally
+  sudo: yes
+  shell: "easy_install pip==7.1.2"
+
+- name: Install specific pip packages
+  # As a part of apache we are independent of local minicoda which is a part 
+  # of iBRAIN_UZH env.
+  sudo: yes
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:    
+    - django
+    - django-nose
+    - django-allauth
+    - django-rest-auth
+    - django-cors-headers
+  tags:
+    - python
+    - django

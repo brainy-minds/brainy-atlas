@@ -1,0 +1,20 @@
+# Note that we rely on the fact that gc3pie and brainy-mind are globally 
+# installed, i.e. available for /usr/bin/python
+- name: Deploy brainy-atlas
+  hosts:
+    - web_server
+  remote_user: "{{ ansible_ssh_user }}"
+  tags:
+    - web
+  vars:
+    # overwrite roles/ibrain_app/defaults/main.yml
+    deploy_user: "{{ ansible_ssh_user }}"    
+    # turn off/on debug deploy
+    deploy_debug: yes
+    # other vars
+    app_domain: brainy.pelkmanslab.org
+    app_name: atlas
+    django_dir: /home/{{ deploy_user }}/brainy-atlas
+    django_wsgi_dir: "{{ django_dir }}/{{app_name}}"
+  roles:
+    - brainy_atlas

@@ -1,0 +1,8 @@
+---
+- name: Get the latest code
+  git: repo="https://github.com/brainy-minds/brainy-atlas"
+       dest="/home/{{ deploy_user }}/brainy-atlas"
+       accept_hostkey=yes
+       update=yes
+       clone=yes
+       force=yes

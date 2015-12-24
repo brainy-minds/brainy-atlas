@@ -1,0 +1,38 @@
+---
+#
+# Create database and add mock data
+#
+- name: Delete database
+  file: path="{{ django_dir }}/db.sqlite3" state=absent
+  sudo: yes
+
+- name: Correct write permissions for the apache
+  command: chown {{ deploy_user }}:www-data .
+  sudo: yes
+  args:
+    chdir: "{{ django_dir }}"
+
+- name: Database makemigrations
+  django_manage: command=makemigrations app_path="{{ django_dir }}/{{ app_name }}"
+
+- name: Database migrate
+  django_manage: command=migrate app_path="{{ django_dir }}/{{ app_name }}"
+
+- name: Correct write permissions for database
+  command: chown {{ deploy_user }}:www-data db.sqlite3
+  sudo: yes
+  args:
+    chdir: "{{ django_dir }}/{{ app_name }}"
+
+# - name: Add mock data
+#   django_manage: command=loaddata app_path={{ django_dir }} fixtures={{ item }}
+#   with_items:
+#     - user.json
+#     - userprofile.json
+#     - post.json
+#     - site.json
+#     - socialapp.json
+#     - socialapp-sites.json
+
+  notify:
+    - restart apache2

@@ -1,0 +1,6 @@
+---
+# tasks file for brainy-atalas
+- include: apache.yml
+- include: apt-pip-django.yml
+- include: atlas-git.yml
+- include: atlas-database.yml
